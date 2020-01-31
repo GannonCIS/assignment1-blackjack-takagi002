@@ -24,7 +24,7 @@ public class Dealer {
         
     }
     
-    public void playOUtDealerHand(){
+    public void playOutDealerHand(){
         
     }
     
