@@ -55,7 +55,27 @@ public class Dealer {
     }
     
     public void declareWinners(){
-        
+        if(dealerHand.getScore() < 22){
+            for(Player currPlayer : myPlayers){
+                if(currPlayer.getMyHand().getScore() < 22){
+                    if(currPlayer.getMyHand().getScore() > dealerHand.getScore()){
+                        System.out.println(currPlayer.getName() + ", you're a winner!");
+                    }else{
+                        System.out.println(currPlayer.getName() + ", you lose.");
+                    }
+                }else{
+                    System.out.println(currPlayer.getName() + ", you lose.");
+                }
+            }
+        }else{
+            for(Player currPlayer : myPlayers){
+                if(currPlayer.getMyHand().getScore() < 22){
+                    System.out.println(currPlayer.getName() + ", you're a winner!");
+                }else{
+                    System.out.println(currPlayer.getName() + ", you lose.");
+                }
+            }
+        }
     }
 
     private void initMyPlayers(int numPlayers) {
