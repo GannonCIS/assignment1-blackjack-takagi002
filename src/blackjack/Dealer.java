@@ -23,8 +23,8 @@ public class Dealer {
     
     public void dealOpeningHand(){
         for(int i = 0; i < 2; i++){
-            for(Player currPlayer : myPlayers){
-                currPlayer.getMyHand().addCard(myDeck.dealCard());
+            for(int j = 0; j < myPlayers.length; j++){
+                myPlayers[j].getMyHand().addCard(myDeck.dealCard());
             }
             dealerHand.addCard(myDeck.dealCard());
         }
