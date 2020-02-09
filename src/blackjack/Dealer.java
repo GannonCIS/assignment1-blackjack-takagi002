@@ -35,7 +35,7 @@ public class Dealer {
     public void takePlayerTurns(){
         for(Player currPlayer : myPlayers){
             while(currPlayer.getMyHand().getScore() < 21 && currPlayer.getMyHand().getNumOfCards() < 5){
-                System.out.println(currPlayer.getName() + "'s Hand");
+                System.out.println(currPlayer.getName() + "'s Hand:");
                 currPlayer.getMyHand().printHand();
                 System.out.println("Wanna hit? (y/n)" );
                 char opt = scan.next().charAt(0);
