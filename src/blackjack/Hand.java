@@ -50,5 +50,9 @@ public class Hand {
         System.out.println("Score: " + score);
         System.out.println("");
     }
+    
+    public void getOneDealerCard(){
+        System.out.println("Dealer's 1st Card: " + myCards[0].RANK + " of " + myCards[0].SUIT);
+    }
 }
         

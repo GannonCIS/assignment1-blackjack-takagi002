@@ -33,7 +33,8 @@ public class Dealer {
     }
     
     public void takePlayerTurns(){
-        int counter = 0;
+        dealerHand.getOneDealerCard();
+        System.out.println("");
         for(Player currPlayer : myPlayers){
             while(currPlayer.getMyHand().getScore() < 21 && currPlayer.getMyHand().getNumOfCards() < 5){
                 System.out.println(currPlayer.getName() + "'s Hand:");
