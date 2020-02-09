@@ -89,7 +89,7 @@ public class Dealer {
         myPlayers = new Player[numPlayers];
         for(int i = 0; i < myPlayers.length; i++){
             System.out.println("Player " + (i+1) + " what's your name: ");
-            String name = scan.next();
+            String name = scan.nextLine();
             if(name.equals("")){
                 myPlayers[i] = new Player(i+1);
             }else{
