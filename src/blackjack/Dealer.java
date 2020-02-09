@@ -33,6 +33,7 @@ public class Dealer {
     }
     
     public void takePlayerTurns(){
+        int counter = 0;
         for(Player currPlayer : myPlayers){
             while(currPlayer.getMyHand().getScore() < 21 && currPlayer.getMyHand().getNumOfCards() < 5){
                 System.out.println(currPlayer.getName() + "'s Hand:");
@@ -40,17 +41,23 @@ public class Dealer {
                 System.out.println("Wanna hit? (y/n)" );
                 char opt = scan.next().charAt(0);
                 if(opt == 'y'){
-                    currPlayer.getMyHand().addCard(myDeck.dealCard());
+                    currPlayer.getMyHand().addCard(myDeck.dealCard());                   
+                }else{
+                    break;
                 }
             }
             currPlayer.getMyHand().printHand();
         }
+        playOutDealerHand();
+        
     }
     
     public void playOutDealerHand(){
         while(dealerHand.getScore() < 16){
             dealerHand.addCard(myDeck.dealCard());
         }
+        System.out.println("");
+        System.out.println("Dealer Hand: ");
         dealerHand.printHand();
     }
     

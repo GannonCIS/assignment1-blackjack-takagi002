@@ -15,8 +15,10 @@ public class BlackJack {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Dealer d = new Dealer(1);
+        Dealer d = new Dealer(2);
         d.dealOpeningHand();
         d.takePlayerTurns();
+        d.declareWinners();
+        
     }
 }
