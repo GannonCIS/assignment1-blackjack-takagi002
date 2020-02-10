@@ -21,6 +21,12 @@ public class Dealer {
         initMyPlayers(numOfPlayers);
     }
     
+    public void playGame(){
+        dealOpeningHand();
+        takePlayerTurns();
+        declareWinners();
+    }
+    
     public void dealOpeningHand(){
         for(int i = 0; i < 2; i++){
             for(int j = 0; j < myPlayers.length; j++){
@@ -46,11 +52,10 @@ public class Dealer {
                 }else{
                     break;
                 }
-            }
+            }          
             currPlayer.getMyHand().printHand();
         }
-        playOutDealerHand();
-        
+        playOutDealerHand();     
     }
     
     public void playOutDealerHand(){
@@ -63,28 +68,33 @@ public class Dealer {
     }
     
     public void declareWinners(){
-        if(dealerHand.getScore() < 22){
-            for(Player currPlayer : myPlayers){
-                if(currPlayer.getMyHand().getScore() < 22){
-                    if(currPlayer.getMyHand().getScore() > dealerHand.getScore()){
-                        System.out.println(currPlayer.getName() + ", you're a winner!");
-                    }else{
-                        System.out.println(currPlayer.getName() + ", you lose.");
-                    }
-                }else{
+        for(Player currPlayer : myPlayers){
+            if(currPlayer.getMyHand().getScore() > 21 || dealerHand.getScore() > 21){
+                if(currPlayer.getMyHand().getScore() > 21){
                     System.out.println(currPlayer.getName() + ", you lose.");
-                }
-            }
-        }else{
-            for(Player currPlayer : myPlayers){
-                if(currPlayer.getMyHand().getScore() < 22){
+                    currPlayer.getMyHand().printHand();
+                }else{
                     System.out.println(currPlayer.getName() + ", you're a winner!");
-                }else{
-                    System.out.println(currPlayer.getName() + ", you lose.");
+                    currPlayer.getMyHand().printHand();
                 }
+            }else if(dealerHand.getScore() == 21 || dealerHand.getNumOfCards() > 4){
+                System.out.println(currPlayer.getName() + ", you lose.");
+                currPlayer.getMyHand().printHand();
+            }else if(currPlayer.getMyHand().getNumOfCards() > 4){
+                System.out.println(currPlayer.getName() + ", you're a winner!");
+                currPlayer.getMyHand().printHand();
+            }else if(currPlayer.getMyHand().getScore() > dealerHand.getScore()){
+                System.out.println(currPlayer.getName() + ", you're a winner!");
+                currPlayer.getMyHand().printHand();
+            }else{
+                System.out.println(currPlayer.getName() + ", you lose.");
+                currPlayer.getMyHand().printHand();
             }
+            
         }
     }
+        
+    
 
     private void initMyPlayers(int numPlayers) {
         myPlayers = new Player[numPlayers];
